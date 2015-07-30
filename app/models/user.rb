@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
   def password
-    @password ||= Password.new(password_digest)
+    @password ||= Password.new(password_hash)
   end
 
   def password=(new_password)
     @password = Password.create(new_password)
-    self.password_digest = @password
+    self.password_hash = @password
   end
 
 end
