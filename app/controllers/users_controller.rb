@@ -43,4 +43,8 @@ post '/login' do
   end
 end
 
+get '/users/:id/relationships' do
+
+  erb :'/user/relationship'
+end
 

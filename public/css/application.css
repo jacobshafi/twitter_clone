@@ -1,8 +1,8 @@
-.debugger {
+/*.debugger {
   border-style: solid;
   border-width: 1px;
   border-color: red;
-}
+}*/
 
 .form-signin {
     max-width: 330px;
@@ -103,4 +103,43 @@ body{margin:40px;}
   line-height: 1.33;
 }
 
+/*RELATIONSHIP PAGE*/
+
+.row {
+  margin-left: 225px;
+  margin-right: 225px;
+}
+
+.relationships {
+  height: 700px;
+  color: black;
+  text-align: center;
+  font-family: 'Pacifico'
+}
+
+.relationships p {
+  margin: 20px 5px;
+  font-size: 28px;
+}
+
+
+.followers {
+  overflow-y: scroll;
+  width: 400px;
+  background-color: rgba(128,128,128,0.5);
+  border-radius: 10px;
+}
+
+.following {
+  overflow-y: scroll;
+  width: 400px;
+  background-color: rgba(128,128,128,0.5);
+  border-radius: 10px;
+}
+
+.user_imgs {
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+}
 

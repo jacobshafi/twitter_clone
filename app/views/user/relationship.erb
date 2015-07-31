@@ -1,11 +1,24 @@
-<div class="followers debugger">
-  <div class="col-xs-6">
 
+<div class="row">
+  <div class="span6 debugger relationships followers">
+    <div class="username">
+      <h1>FOLLOWERS</h1>
+      <hr>
+      <% current_user.followers.each do |follower| %>
+        <p><img class="user_imgs" src="<%= follower.gravatar_url %>"> <%= follower.username %></p>
+        <hr>
+        <% end %>
+    </div>
+  </div>
+  <div class="span6 debugger relationships following">
+    <div class="username">
+      <h1>FOLLOWING</h1>
+      <hr>
+      <% current_user.following.each do |following| %>
+        <p><img class="user_imgs" src="<%= following.gravatar_url %>"> <%= following.username %></p>
+        <hr>
+        <% end %>
+    </div>
   </div>
 </div>
 
-<div class="following debugger">
-  <div class="col-xs-6">
-
-  </div>
-</div>
