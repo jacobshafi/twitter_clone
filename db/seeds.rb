@@ -7,4 +7,10 @@ require 'faker'
     email: Faker::Internet.email
     )
 
+10.times do
+  Tweet.create {
+    user_id
+
+  }
+
 end

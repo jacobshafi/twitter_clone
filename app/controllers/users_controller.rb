@@ -43,4 +43,14 @@ post '/login' do
   end
 end
 
+get '/logout' do
+  logout
+  redirect '/'
+end
+
+post '/tweets/new' do
+  Tweet.create(description: params[:description], user_id: session[:id])
+  redirect '/'
+end
+
 
