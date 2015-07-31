@@ -18,18 +18,16 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  has_many :retweets
-  has_many :tweets, through: :retweets
+  has_many :tweets, dependent: :destroy
 
-  has_many :active_friends
+  has_many :following_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :following, through: :following_relationships, source: :followed
 
-  has_many :friends, dependent: :destroy
-
-  has_many :active_friends, class_name:  "Friends", foreign_key: "follower_id", dependent: :destroy
-
-  has_many :following, through: :active_friends, source: :followed
-
-  has_many :followeds, through: :active_friends
-  has_many :following, through: :active_friends, source: :followed
+  has_many :follower_relationships, class_name: "Relationship",
+                                  foreign_key: "followed_id",
+                                  dependent: :destroy
+  has_many :followers, through: :follower_relationships, source: :follower
 
 end
