@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.0.0'
 
 # PostgreSQL driver
 gem 'pg'
+gem 'bcrypt'
 
 # Sinatra driver
 gem 'sinatra'
