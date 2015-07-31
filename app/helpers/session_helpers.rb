@@ -1,7 +1,7 @@
 helpers do
 
   def current_user
-    if sessionp[:id]
+    if session[:id]
       User.find_by(id: session[:id])
     else
       nil

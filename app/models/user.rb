@@ -1,8 +1,11 @@
 require 'bcrypt'
+require 'gravtastic'
 
 class User < ActiveRecord::Base
 
   include BCrypt
+  include Gravtastic
+  gravtastic
 
   validates_presence_of :password, :on => :create
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20}

@@ -21,7 +21,7 @@ end
 post '/login' do
   user = User.find_by(email: params[:email])
   if user.password == params[:password]
-    set_sessin(user.id)
+    set_session(user.id)
     redirect '/profile'
   else
     redirect '/'
