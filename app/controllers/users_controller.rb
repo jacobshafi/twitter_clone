@@ -12,15 +12,17 @@ post '/users/new' do
   user = User.new(username: params[:username], email: params[:email])
   user.password = params[:password]
   user.save
+  p user.errors
+  p "paraaaaaams: #{params}"
   set_session(user.id)
-  redirect '/profile/'
+  redirect "/users/#{user.id}"
 end
 
 post '/login' do
   user = User.find_by(email: params[:email])
   if user.password == params[:password]
     set_sessin(user.id)
-    redirect '/profile/'
+    redirect '/profile'
   else
     redirect '/'
   end
