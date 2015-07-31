@@ -17,6 +17,13 @@
     <div class="col-sm-6 col-md-4 col-md-offset-4">
       <!-- <img class="profile-img" src="http://orig11.deviantart.net/5de3/f/2008/153/6/d/twitter_icon_by_aleandros.png"
               alt=""> -->
+      <% if @errors %>
+        <ul>
+        <% @errors.full_message.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+        </ul>
+      <% end %>
       <form class="form-signin" action='/users/new' method='post' id='login'>
         <input type="text" name='email' class="form-control" placeholder="email" required>
         <input type="text" name="username" class="form-control" placeholder="username" required>

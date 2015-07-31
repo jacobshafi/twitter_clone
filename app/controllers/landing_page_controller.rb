@@ -1,14 +1,18 @@
 get '/' do
-  erb :index
+  if logged_in?
+    redirect :'/users/:id'
+  else
+    erb :'user/login'
+  end
 end
 
-get '/login' do
-  #user check
-  erb :profile
-end
+# get '/login' do
+#   #user check
+#   erb :profile
+# end
 
-get '/signup' do
+# get '/signup' do
 
-  erb :'user/signup'
-end
+#   erb :'user/signup'
+# end
 
