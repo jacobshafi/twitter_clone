@@ -27,6 +27,7 @@ post '/users/new' do
 end
 
 get '/users/:id' do
+  @tweet = Tweet.all
   erb :'user/profile'
 end
 
@@ -48,3 +49,18 @@ get '/users/:id/relationships' do
   erb :'/user/relationship'
 end
 
+get '/logout' do
+  logout
+  redirect '/'
+end
+
+post '/tweets/new' do
+  Tweet.create(description: params[:description], user_id: session[:id])
+  redirect '/'
+end
+
+post '/relationships/new' do
+  Relationship.create(follower_id: session[:id], followed_id: params[:followed_id])
+  ap params
+  redirect "/"
+end

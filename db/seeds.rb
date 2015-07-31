@@ -10,4 +10,10 @@ require 'faker'
     new_user.tweets << Tweet.create(description: Faker::Hacker.say_something_smart)
   end
 
+10.times do
+  Tweet.create {
+    user_id
+
+  }
+
 end

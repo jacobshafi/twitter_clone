@@ -105,10 +105,10 @@ body{margin:40px;}
 
 /*RELATIONSHIP PAGE*/
 
-.row {
+/*.row {
   margin-left: 225px;
   margin-right: 225px;
-}
+}*/
 
 .relationships {
   height: 700px;
@@ -143,3 +143,11 @@ body{margin:40px;}
   border-radius: 30px;
 }
 
+.userpic {
+  border-radius: 27px;
+}
+
+.tweets-dashboard {
+  overflow-y: scroll;
+  height: 720px;
+}
