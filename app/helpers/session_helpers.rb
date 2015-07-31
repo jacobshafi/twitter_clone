@@ -9,7 +9,8 @@ helpers do
   end
 
   def logged_in?
-    !session[:user_id].nil?
+    # ap session[:id] == nil
+    !session[:id].nil?
   end
 
   def set_session(id)
