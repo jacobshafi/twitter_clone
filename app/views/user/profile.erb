@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Twatter</a></li>
+        <li class="active"><a href="#">Twitter</a></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <li>
@@ -19,24 +19,27 @@
 </nav>
 
 <div class="row">
-    <div class="span1" style="background-color:lavenderblush;">
+    <div class="span4" style="background-color:lavenderblush;">
       <img class="userpic" src="<%= current_user.gravatar_url %>">
-    </div>
-    <div class="span3" style="background-color:lavenderblush;">
       <p> Username: @<%= current_user.username %> </p>
       <p> Followers: <%= current_user.followers.count %></p>
       <p> Following: <%= current_user.following.count %></p>
-
     </div>
     <div class="span8" style="background-color:lavender;">
-    <ul>
-        <% current_user.tweets.each do |tweet| %>
-          <li><%= tweet.description %>
-              @<%= User.find_by_id(tweet.user_id).username %>
-          </li>
+      <div class="tweets-dashboard">
+      <ul>
+          <% @tweet.each do |tweet| %>
+          <% if tweet.user %>
+            <p><%= tweet.description %></p>
+            <p>@<%= tweet.user.username %></p>
+              <form class="follow-button" action="/relationships/new" method="POST">
+              <input type='hidden' name="followed_id" value="<%= tweet.user_id %>">
+              <button type="submit" class="btn btn-primary" name="follow">Follow</button>
+            </form>
+          <% end %>
         <% end %>
-
-    </ul>
+      </ul>
+    </div>
     </div>
   </div>
 
